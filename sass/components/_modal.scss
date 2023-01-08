@@ -1,14 +1,36 @@
 @use '../abstract' as a;
 
 #modal-background {
-  position: absolute;
+  position: fixed;
   top: 0;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   z-index: 2;
-  @include a.flex;
-  background-color: rgba(0, 0, 0, .90);
+  background-color: rgba(0, 0, 0, .50);
 }
+
+.displayed {
+  @include a.flex;
+  animation: Blur .25s ease-in-out forwards;
+
+}
+
+.hidden {
+  display: none;
+}
+
+
+@keyframes Blur {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+  }
+}
+
 
 #modal_wrapper {
   position: relative;

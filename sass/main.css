@@ -322,6 +322,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1em;
+  cursor: pointer;
 }
 
 .social_icon_container {
@@ -512,17 +513,35 @@ button {
   }
 }
 #modal-background {
-  position: absolute;
+  position: fixed;
   top: 0;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.displayed {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.9);
+  animation: Blur 0.25s ease-in-out forwards;
 }
 
+.hidden {
+  display: none;
+}
+
+@keyframes Blur {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+  }
+}
 #modal_wrapper {
   position: relative;
   max-width: 1024px;
