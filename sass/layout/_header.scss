@@ -4,9 +4,9 @@ header {
   position: sticky;
   height: 3em;
   z-index: 1;
-  top: 0;
   left: 0;
   right: 0;
+  top: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
   @include a.flex($j: space-between);
   @include a.mq-320 {

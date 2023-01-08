@@ -3,7 +3,13 @@
 footer {
   @include a.flex;
   flex-direction: column;
+  background-color: a.$clr-bggrey;
+  padding-top: 2em;
   gap: 1em;
+  @include a.mq-961 {
+    align-items: flex-start;
+    padding: 2em;
+  }
 }
 
 .social_links {
@@ -22,6 +28,14 @@ footer {
   @include a.flex;
   flex-direction: column;
   gap: 1em;
+  @include a.mq-641 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+  }
+  @include a.mq-961 {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .seo_tags {

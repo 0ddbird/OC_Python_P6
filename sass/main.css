@@ -104,9 +104,9 @@ header {
   position: sticky;
   height: 3em;
   z-index: 1;
-  top: 0;
   left: 0;
   right: 0;
+  top: 0;
   background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
   display: flex;
   justify-content: space-between;
@@ -119,20 +119,104 @@ header {
 body {
   background: black;
   position: relative;
-  top: -3em;
 }
 
 #categories {
   padding: 0 2em;
 }
 
+#hero {
+  position: relative;
+  top: -70px;
+}
+
+#hero_cover_container {
+  position: relative;
+}
+@media (min-width: 961px) {
+  #hero_cover_container {
+    margin-bottom: -70px;
+  }
+}
+#hero_cover_container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%);
+}
+
+#hero_cover {
+  width: 100%;
+}
+
+#hero_panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+@media (min-width: 961px) {
+  #hero_panel {
+    width: 30%;
+    position: absolute;
+    left: 3em;
+    bottom: 20%;
+    align-items: flex-start;
+  }
+}
+@media (min-width: 1025px) {
+  #hero_panel {
+    width: 25%;
+    bottom: 30%;
+  }
+}
+@media (min-width: 1800px) {
+  #hero_panel {
+    bottom: 40%;
+  }
+}
+
+#hero_description {
+  display: none;
+}
+@media (min-width: 961px) {
+  #hero_description {
+    font-size: 1.5em;
+    display: block;
+    margin-bottom: 1em;
+  }
+}
+@media (min-width: 1800px) {
+  #hero_description {
+    font-size: 2em;
+  }
+}
+
+#hero_controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .hero_btn {
   margin: 0 0.25em;
+}
+@media (min-width: 1025px) {
+  .hero_btn {
+    font-size: 1.5em;
+  }
 }
 .hero_btn .btn_icon {
   height: 1em;
   width: 1em;
   margin-right: 0.5em;
+}
+@media (min-width: 1025px) {
+  .hero_btn .btn_icon {
+    height: 1.5em;
+    width: 1.5em;
+  }
 }
 
 #hero_play_btn {
@@ -141,13 +225,12 @@ body {
 }
 
 #hero_info_btn {
-  background-color: rgba(154, 154, 154, 0.68);
+  background-color: rgba(154, 154, 154, 0.5);
+  transition: background-color 0.25s ease-out;
 }
-
-#hero_controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#hero_info_btn:hover {
+  background-color: rgba(154, 154, 154, 0.2);
+  transition: background-color 0.25s ease-out;
 }
 
 .category {
@@ -169,7 +252,15 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: rgb(50, 50, 50);
+  padding-top: 2em;
   gap: 1em;
+}
+@media (min-width: 961px) {
+  footer {
+    align-items: flex-start;
+    padding: 2em;
+  }
 }
 
 .social_links {
@@ -192,6 +283,18 @@ footer {
   align-items: center;
   flex-direction: column;
   gap: 1em;
+}
+@media (min-width: 641px) {
+  #seo_tag_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+  }
+}
+@media (min-width: 961px) {
+  #seo_tag_container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 nav a {
