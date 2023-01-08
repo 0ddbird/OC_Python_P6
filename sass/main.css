@@ -112,10 +112,65 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-#logo {
-  height: 2em;
+
+#logo_container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#logo_container h1 {
+  font-size: 1.1em;
+  margin-left: 4em;
+  font-family: "Fugaz One", sans-serif;
+}
+@media (min-width: 641px) {
+  #logo_container h1 {
+    font-size: 1.5em;
+    margin-left: 3.25em;
+  }
 }
 
+#logo_elements {
+  height: 3em;
+  position: relative;
+  top: 0;
+  left: 1em;
+}
+#logo_elements img {
+  position: absolute;
+  inset: 0;
+  height: 3em;
+}
+
+#logo_el_1 {
+  animation: rotateLeft 27s linear infinite;
+}
+
+#logo_el_3 {
+  animation: rotateRight 18s linear infinite;
+}
+
+#logo_el_4 {
+  animation: rotateLeft 25s linear infinite;
+}
+
+@keyframes rotateRight {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateLeft {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
 body {
   background: black;
   position: relative;
@@ -253,7 +308,7 @@ footer {
   align-items: center;
   flex-direction: column;
   background-color: rgb(50, 50, 50);
-  padding-top: 2em;
+  padding: 2em 0;
   gap: 1em;
 }
 @media (min-width: 961px) {

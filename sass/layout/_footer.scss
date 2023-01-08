@@ -4,7 +4,7 @@ footer {
   @include a.flex;
   flex-direction: column;
   background-color: a.$clr-bggrey;
-  padding-top: 2em;
+  padding: 2em 0;
   gap: 1em;
   @include a.mq-961 {
     align-items: flex-start;

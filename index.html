@@ -6,11 +6,20 @@
     <link rel="stylesheet" type="text/css" href="./sass/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <script src="./dist/index.js" defer></script>
 </head>
 <header>
-    <img id="logo" src="assets/Logo.svg" alt="logo"/>
+    <div id="logo_container">
+        <div id="logo_elements">
+            <img id="logo_el_1" src="assets/logo/Logo_el_1.svg" alt="">
+            <img id="logo_el_2" src="assets/logo/Logo_el_2.svg" alt="">
+            <img id="logo_el_3" src="assets/logo/Logo_el_3.svg" alt="">
+            <img id="logo_el_4" src="assets/logo/Logo_el_4.svg" alt="">
+        </div>
+        <h1>JUST STREAM IT</h1>
+    </div>
+
     <nav>
         <a href="#">Accueil</a>
         <a href="#">Catégories</a>
@@ -25,13 +34,13 @@
         <p id="hero_description">A young violinist with leukemia brings hope and life into a desolate Russian hospital for children.</p>
         <div id="hero_controls">
             <button id="hero_play_btn" class="hero_btn">
-            <img class="btn_icon" src="assets/icons/icon_play.svg" alt="play">
-            Regarder
-        </button>
-        <button id="hero_info_btn" class="hero_btn">
-            <img class="btn_icon" src="assets/icons/icon_info.svg" alt="info">
-            Infos
-        </button>
+                <img class="btn_icon" src="assets/icons/icon_play.svg" alt="play">
+                Regarder
+            </button>
+            <button id="hero_info_btn" class="hero_btn">
+                <img class="btn_icon" src="assets/icons/icon_info.svg" alt="info">
+                Infos
+            </button>
         </div>
     </div>
 </section>
@@ -121,6 +130,7 @@
                         <img class="btn_icon" src="assets/icons/icon_info.svg" alt="info">
                         <img class="btn_icon_hover" src="./assets/icons/hover.svg" alt="hover effect"/>
                     </button>
+                </div>
             </article>
             <article class="movie">
                 <img src="./assets/covers/action/die_hard.jpg" class="movie_thumbnail" alt="default cover"/>
