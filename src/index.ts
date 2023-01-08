@@ -1,7 +1,20 @@
-const infoButtons = document.querySelectorAll('.info-btn')
+import { observeHero } from './components/observer.js'
+
 const modal = document.querySelector('#modal-background')
-console.log(modal)
 const modalCloseButton = document.querySelector('#modal_close-btn')
+const infoButtons = [
+  ...document.querySelectorAll('.info-btn'),
+  document.querySelector('#hero_info_btn')
+]
+
+function addInfoEventListeners (): void {
+  infoButtons.forEach(button => {
+    if (button != null) button.addEventListener('click', displayModal)
+  })
+
+  if (modalCloseButton != null) modalCloseButton.addEventListener('click', hideModal)
+}
+
 const displayModal = (): void => {
   if (modal != null) {
     modal.classList.remove('hidden')
@@ -16,8 +29,5 @@ const hideModal = (): void => {
   }
 }
 
-infoButtons.forEach(button => {
-  button.addEventListener('click', displayModal)
-})
-
-if (modalCloseButton != null) modalCloseButton.addEventListener('click', hideModal)
+addInfoEventListeners()
+observeHero()

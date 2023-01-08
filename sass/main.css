@@ -100,6 +100,12 @@ h6 {
   font-weight: 700;
 }
 
+#observer_anchor {
+  position: absolute;
+  top: 0;
+  height: 200px;
+}
+
 header {
   position: sticky;
   height: 3em;
@@ -107,10 +113,33 @@ header {
   left: 0;
   right: 0;
   top: 0;
-  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.gradient {
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.5s ease-in-out;
+}
+.gradient::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.plain {
+  transition: background-color 0.5s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.plain::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 #logo_container {
@@ -518,7 +547,7 @@ button {
   height: 100vh;
   width: 100vw;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .displayed {
