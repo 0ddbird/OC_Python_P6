@@ -1,0 +1,508 @@
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button, input, select {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 0;
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+* {
+  color: white;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 10px;
+}
+@media (min-width: 320px) {
+  * {
+    font-size: 12px;
+  }
+}
+@media (min-width: 641px) {
+  * {
+    font-size: 14px;
+  }
+}
+@media (min-width: 961px) {
+  * {
+    font-size: 16px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.6em;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+h6 {
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+header {
+  position: sticky;
+  height: 3em;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#logo {
+  height: 2em;
+}
+
+body {
+  background: black;
+  position: relative;
+  top: -3em;
+}
+
+#categories {
+  padding: 0 2em;
+}
+
+.hero_btn {
+  margin: 0 0.25em;
+}
+.hero_btn .btn_icon {
+  height: 1em;
+  width: 1em;
+  margin-right: 0.5em;
+}
+
+#hero_play_btn {
+  color: black;
+  font-weight: 700;
+}
+
+#hero_info_btn {
+  background-color: rgba(154, 154, 154, 0.68);
+}
+
+#hero_controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.category {
+  width: 100%;
+}
+
+.movies_container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1em;
+  padding: 0 1em;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.social_links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+
+.social_icon_container {
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#seo_tag_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+}
+
+nav a {
+  padding: 1em;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 0.5ch;
+  cursor: pointer;
+  transition: transform 0.25s ease-in-out;
+}
+
+.info-btn {
+  position: relative;
+  background: none;
+  z-index: 1;
+}
+.info-btn:hover .btn_icon_hover {
+  animation: fadeSpin 15s linear forwards;
+}
+
+.btn_icon_hover {
+  position: absolute;
+  inset: auto;
+  height: 3em;
+  width: 3em;
+  animation: fadeOutSpin 0.25s ease-in-out forwards;
+}
+
+.arrow-button {
+  position: absolute;
+  background: none;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeShrink 0.25s ease-in-out forwards;
+}
+.arrow-button img {
+  height: 3em;
+  width: 3em;
+}
+.arrow-button.previous {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+.arrow-button.next {
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+.arrow-button:hover {
+  animation: fadeGrow 0.25s ease-in-out forwards;
+}
+
+@keyframes fadeGrow {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.2);
+  }
+}
+@keyframes fadeShrink {
+  from {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.2);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50%) scale(1.1);
+  }
+}
+@keyframes fadeSpin {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  2% {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(720deg);
+  }
+}
+@keyframes fadeOutSpin {
+  from {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+  to {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+}
+.movie {
+  overflow: hidden;
+  position: relative;
+  min-width: 187px;
+  max-width: 280.5px;
+  border-radius: 5px;
+  transition: transform 0.25s ease-out;
+  margin: 2.5em 0 1em 0;
+  cursor: pointer;
+  white-space: normal;
+}
+.movie:hover {
+  transform: scale(1.1) translateY(-1ch);
+  transition: transform 0.25s ease-in;
+}
+.movie:hover .movie_info {
+  transform: translateY(1%);
+  transition: transform 0.25s ease-in-out;
+}
+
+.movie_thumbnail {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.movie_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5em;
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+  transform: translateY(100%);
+  animation: fadeSlice 0.25s ease-in-out forwards;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#modal-background {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+#modal_wrapper {
+  position: relative;
+  max-width: 1024px;
+  border-radius: 5px;
+  width: 100%;
+  padding: 3em 1em;
+}
+
+#modal_close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+}
+#modal_close-btn img {
+  height: 2em;
+  width: 2em;
+  opacity: 0.5;
+}
+
+#modal_content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+@media (min-width: 641px) {
+  #modal_content {
+    display: grid;
+    grid-template-areas: "cover        heading     heading" "cover        genre       genre" "cover        release     release" "cover        rating      rating" "cover        imdb        imdb" "cover        director    director" "cover        duration    duration" "cover        country     country" "cover        boxoffice   boxoffice" "casting      casting     casting" "synopsis     synopsis    synopsis";
+    gap: 0.25em 1em;
+  }
+}
+@media (min-width: 961px) {
+  #modal_content {
+    display: grid;
+    grid-template-areas: "cover        heading     heading" "cover        genre       genre" "cover        release     release" "cover        rating      rating" "cover        imdb        imdb" "cover        director    director" "cover        duration    duration" "cover        country     country" "cover        boxoffice   boxoffice" "cover        casting     casting" "synopsis     synopsis    synopsis";
+  }
+}
+@media (min-width: 1025px) {
+  #modal_content {
+    display: grid;
+    grid-template-areas: "cover        heading     heading" "cover        genre       genre" "cover        release     release" "cover        rating      rating" "cover        imdb        imdb" "cover        director    director" "cover        duration    duration" "cover        country     country" "cover        boxoffice   boxoffice" "cover        casting     casting" "cover        synopsis    synopsis";
+  }
+}
+
+#modal_movie_picture_container {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#modal_movie_picture_container::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%);
+}
+@media (min-width: 641px) {
+  #modal_movie_picture_container {
+    grid-area: cover;
+  }
+}
+
+#modal_movie_picture {
+  object-fit: cover;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#modal_movie_title {
+  border-radius: 5px;
+}
+@media (min-width: 641px) {
+  #modal_movie_title {
+    grid-area: heading;
+  }
+}
+
+.modal_row_title {
+  color: #f39c12;
+  font-weight: 700;
+  margin-right: 1ch;
+}
+
+@media (min-width: 641px) {
+  #modal_genre {
+    grid-area: genre;
+  }
+}
+
+@media (min-width: 641px) {
+  #modal_release {
+    grid-area: release;
+  }
+}
+
+@media (min-width: 641px) {
+  #modal_rating {
+    grid-area: rating;
+  }
+}
+
+@media (min-width: 641px) {
+  #modal_imdb {
+    grid-area: imdb;
+  }
+}
+
+@media (min-width: 641px) {
+  #modal_director {
+    grid-area: director;
+  }
+}
+
+@media (min-width: 641px) {
+  #modal_casting {
+    grid-area: casting;
+  }
+}
+
+@media (min-width: 641px) {
+  #modal_duration {
+    grid-area: duration;
+  }
+}
+
+@media (min-width: 641px) {
+  #modal_country {
+    grid-area: country;
+  }
+}
+
+@media (min-width: 641px) {
+  #modal_box-office {
+    grid-area: boxoffice;
+  }
+}
+
+@media (min-width: 641px) {
+  #modal_synopsis {
+    grid-area: synopsis;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

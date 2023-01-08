@@ -1,0 +1,29 @@
+@use '../abstract' as a;
+
+footer {
+  @include a.flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.social_links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+
+.social_icon_container {
+  height: 25px;
+  width: 25px;
+  @include a.flex;
+}
+
+#seo_tag_container {
+  @include a.flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.seo_tags {
+
+}

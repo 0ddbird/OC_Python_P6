@@ -1,0 +1,197 @@
+@use '../abstract' as a;
+
+#modal-background {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  @include a.flex;
+  background-color: rgba(0, 0, 0, .90);
+}
+
+#modal_wrapper {
+  position: relative;
+  max-width: 1024px;
+  border-radius: 5px;
+  width: 100%;
+  padding: 3em 1em;
+}
+
+#modal_close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+
+  & img {
+    height: 2em;
+    width: 2em;
+    opacity: .5;
+  }
+}
+
+#modal_content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  @include a.mq-641 {
+    display: grid;
+    grid-template-areas:  'cover        heading     heading'
+                          'cover        genre       genre'
+                          'cover        release     release'
+                          'cover        rating      rating'
+                          'cover        imdb        imdb'
+                          'cover        director    director'
+                          'cover        duration    duration'
+                          'cover        country     country'
+                          'cover        boxoffice   boxoffice'
+                          'casting      casting     casting'
+                          'synopsis     synopsis    synopsis';
+    gap: .25em 1em;
+  }
+  @include a.mq-961 {
+    display: grid;
+    grid-template-areas:  'cover        heading     heading'
+                          'cover        genre       genre'
+                          'cover        release     release'
+                          'cover        rating      rating'
+                          'cover        imdb        imdb'
+                          'cover        director    director'
+                          'cover        duration    duration'
+                          'cover        country     country'
+                          'cover        boxoffice   boxoffice'
+                          'cover        casting     casting'
+                          'synopsis     synopsis    synopsis';
+  }
+  @include a.mq-1025 {
+    display: grid;
+    grid-template-areas:  'cover        heading     heading'
+                          'cover        genre       genre'
+                          'cover        release     release'
+                          'cover        rating      rating'
+                          'cover        imdb        imdb'
+                          'cover        director    director'
+                          'cover        duration    duration'
+                          'cover        country     country'
+                          'cover        boxoffice   boxoffice'
+                          'cover        casting     casting'
+                          'cover        synopsis    synopsis';
+
+  }
+}
+
+#modal_movie_picture_container {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  @include a.flex;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%);
+  }
+
+  @include a.mq-641 {
+    grid-area: cover;
+  }
+
+}
+
+#modal_movie_picture {
+  object-fit: cover;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#modal_movie_title {
+  border-radius: 5px;
+  @include a.mq-641 {
+    grid-area: heading;
+  }
+}
+
+.modal_row {
+
+}
+
+.modal_row_title {
+  color: a.$clr-main;
+  font-weight: 700;
+  margin-right: 1ch;
+}
+
+#modal_genre {
+  @include a.mq-641 {
+    grid-area: genre;
+  }
+}
+
+
+#modal_release {
+  @include a.mq-641 {
+    grid-area: release;
+  }
+}
+
+
+#modal_rating {
+  @include a.mq-641 {
+    grid-area: rating;
+  }
+}
+
+
+#modal_imdb {
+  @include a.mq-641 {
+    grid-area: imdb;
+  }
+}
+
+
+#modal_director {
+  @include a.mq-641 {
+    grid-area: director;
+  }
+}
+
+
+#modal_casting {
+  @include a.mq-641 {
+    grid-area: casting;
+  }
+}
+
+
+#modal_duration {
+  @include a.mq-641 {
+    grid-area: duration;
+  }
+}
+
+
+#modal_country {
+  @include a.mq-641 {
+    grid-area: country;
+  }
+}
+
+
+#modal_box-office {
+  @include a.mq-641 {
+    grid-area: boxoffice;
+  }
+}
+
+
+#modal_synopsis {
+  @include a.mq-641 {
+    grid-area: synopsis;
+  }
+}
+
+

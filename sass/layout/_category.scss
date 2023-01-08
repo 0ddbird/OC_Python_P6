@@ -1,0 +1,19 @@
+@use '../abstract' as a;
+
+.category {
+  width: 100%;
+}
+
+.category_title {
+
+}
+
+.movies_container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1em;
+  padding: 0 1em;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+}

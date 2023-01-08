@@ -1,0 +1,29 @@
+@use '../abstract' as a;
+
+#hero {
+
+}
+
+.hero_btn {
+  margin: 0 .25em;
+
+  & .btn_icon {
+    height: 1em;
+    width: 1em;
+    margin-right: .5em;
+  }
+}
+
+#hero_play_btn {
+  color: black;
+  font-weight: 700;
+
+}
+
+#hero_info_btn {
+  background-color: a.$clr-agrey;
+}
+
+#hero_controls {
+  @include a.flex;
+}

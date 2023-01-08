@@ -1,0 +1,108 @@
+@use '../abstract' as a;
+
+button {
+  @include a.flex;
+  border: none;
+  padding: .5em 1em;
+  border-radius: .5ch;
+  cursor: pointer;
+  transition: transform .25s ease-in-out;
+}
+
+.info-btn {
+  position: relative;
+  background: none;
+  z-index: 1;
+
+  &:hover .btn_icon_hover {
+    animation: fadeSpin 15s linear forwards;
+  }
+}
+
+.btn_icon_hover {
+  position: absolute;
+  inset: auto;
+  height: 3em;
+  width: 3em;
+  animation: fadeOutSpin .25s ease-in-out forwards;
+}
+
+.arrow-button {
+  position: absolute;
+  background: none;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeShrink .25s ease-in-out forwards;
+
+  & img {
+    height: 3em;
+    width: 3em;
+  }
+
+  &.previous {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+
+  &.next {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+  }
+
+  &:hover {
+    animation: fadeGrow .25s ease-in-out forwards;
+  }
+}
+
+
+@keyframes fadeGrow {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.2);
+  }
+}
+
+@keyframes fadeShrink {
+  from {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.2);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50%) scale(1.1);
+  }
+}
+
+@keyframes fadeSpin {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+
+  2% {
+    opacity: 1;
+    transform: rotate(360deg)
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes fadeOutSpin {
+  from {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+  to {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+}
