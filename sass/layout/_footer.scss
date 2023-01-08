@@ -39,5 +39,11 @@ footer {
 }
 
 .seo_tags {
+  & a {
+    color: #515151;
 
+    &:hover {
+      color: #717171;
+    }
+  }
 }
