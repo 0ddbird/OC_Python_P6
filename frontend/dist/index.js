@@ -4,7 +4,8 @@ const selectedCategories = ['Action', 'Sci-Fi', 'Adventure'];
 async function main(categoryNames) {
     observeHero();
     const controller = new Controller();
-    await controller.getMovies(categoryNames);
-    controller.buildDOM();
+    await controller.setHeroMovie();
+    await controller.setMovies(categoryNames);
+    controller.getDOM();
 }
 await main(selectedCategories);
