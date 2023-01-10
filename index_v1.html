@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Just Stream It</title>
+    <link rel="stylesheet" type="text/css" href="frontend/sass/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="frontend/dist/index.js" type="module" defer></script>
+</head>
+
+<body>
+<div id="observer_anchor"></div>
+<header class="gradient">
+    <div id="logo_container">
+        <div id="logo_elements">
+            <img id="logo_el_1" src="frontend/assets/logo/Logo_el_1.svg" alt="">
+            <img id="logo_el_2" src="frontend/assets/logo/Logo_el_2.svg" alt="">
+            <img id="logo_el_3" src="frontend/assets/logo/Logo_el_3.svg" alt="">
+            <img id="logo_el_4" src="frontend/assets/logo/Logo_el_4.svg" alt="">
+        </div>
+        <h1>JUST STREAM IT</h1>
+    </div>
+
+    <nav>
+        <a href="#">Accueil</a>
+        <a href="#">Catégories</a>
+    </nav>
+</header>
+<section id="hero">
+    <div id="hero_cover_container">
+        <img id="hero_cover" src="frontend/assets/covers/hero/hopeful_notes.jpg" alt="hero cover"/>
+    </div>
+    <div id="hero_panel">
+        <p id="hero_description">A young violinist with leukemia brings hope and life into a desolate Russian hospital for children.</p>
+        <div id="hero_controls">
+            <button id="hero_play_btn" class="hero_btn">
+                <img class="btn_icon" src="frontend/assets/icons/icon_play.svg" alt="play">
+                Regarder
+            </button>
+            <button id="hero_info_btn" class="hero_btn">
+                <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                Infos
+            </button>
+        </div>
+    </div>
+</section>
+<div id="categories">
+    <section class="category">
+        <h1 class="category_title">Les mieux notés</h1>
+        <div class="movies_container">
+            <button class="arrow-button previous">
+                <img src="frontend/assets/icons/chevron-left.svg" alt="previous"/>
+
+            </button>
+            <article class="movie">
+                <img src="frontend/assets/covers/top_rated/hobbit.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/top_rated/jurassic_park.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/top_rated/wall_e.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/top_rated/totoro.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/top_rated/forrest_gump.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <button class="arrow-button next">
+                <img src="frontend/assets/icons/chevron-right.svg" alt="next"/>
+            </button>
+        </div>
+    </section>
+    <section class="category">
+        <h1 class="category_title">Action</h1>
+        <div class="movies_container">
+            <article class="movie">
+                <img src="frontend/assets/covers/action/rambo.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/action/batman_begins.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/action/casino_royale.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/action/die_hard.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/action/the_rock.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section class="category">
+        <h1 class="category_title">Science-Fiction</h1>
+        <div class="movies_container">
+            <article class="movie">
+                <img src="frontend/assets/covers/SF/alien.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/SF/empire_sb.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/SF/fifth_element.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/SF/ready_p1.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/SF/finch.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section class="category">
+        <h1 class="category_title">Comédie</h1>
+        <div class="movies_container">
+            <article class="movie">
+                <img src="frontend/assets/covers/comedie/doubtfire.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/comedie/monty-python.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/comedie/parasite.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/comedie/les_bronzes.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+            <article class="movie">
+                <img src="frontend/assets/covers/comedie/kaamelott.jpg" class="movie_thumbnail" alt="default cover"/>
+                <div class="movie_info">
+                    <button class="info-btn">
+                        <img class="btn_icon" src="frontend/assets/icons/icon_info.svg" alt="info">
+                        <img class="btn_icon_hover" src="frontend/assets/icons/hover.svg" alt="hover effect"/>
+                    </button>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+<footer>
+    <div class="social_links">
+        <a class="social_icon_container" href="#">
+            <img class="social_icon" src="frontend/assets/icons/Facebook.svg" alt="facebook"/>
+        </a>
+        <a class="social_icon_container" href="#">
+            <img class="social_icon" src="frontend/assets/icons/Instagram.svg" alt="instagram"/>
+        </a>
+        <a class="social_icon_container" href="#">
+            <img class="social_icon" src="frontend/assets/icons/Twitter.svg" alt="twitter"/>
+        </a>
+        <a class="social_icon_container" href="#">
+            <img class="social_icon" src="frontend/assets/icons/YouTube.svg" alt="youtube"/>
+        </a>
+    </div>
+    <div id="seo_tag_container">
+        <ul class="seo_tags">
+            <li><a href="#">Lorem ipsum</a></li>
+            <li><a href="#">Lorem ipsum</a></li>
+            <li><a href="#">Lorem ipsum</a></li>
+            <li><a href="#">Lorem ipsum</a></li>
+        </ul>
+        <ul class="seo_tags">
+            <li><a href="#">Lorem ipsum</a></li>
+            <li><a href="#">Lorem ipsum</a></li>
+            <li><a href="#">Lorem ipsum</a></li>
+            <li><a href="#">Lorem ipsum</a></li>
+        </ul>
+        <ul class="seo_tags">
+            <li><a href="#">Lorem ipsum</a></li>
+            <li><a href="#">Lorem ipsum</a></li>
+            <li><a href="#">Lorem ipsum</a></li>
+            <li><a href="#">Lorem ipsum</a></li>
+        </ul>
+        <ul class="seo_tags">
+            <li><a href="#">Lorem ipsum</a></li>
+            <li><a href="#">Lorem ipsum</a></li>
+            <li><a href="#">Lorem ipsum</a></li>
+            <li><a href="#">Lorem ipsum</a></li>
+        </ul>
+    </div>
+</footer>
+<div id="modal-background" class="hidden">
+    <div id="modal_wrapper">
+        <button id="modal_close-btn">
+            <img src="frontend/assets/icons/xmark.svg" alt="close"/>
+        </button>
+        <section id="modal_content">
+            <div id="modal_movie_picture_container">
+                <img id="modal_movie_picture" src="frontend/assets/covers/SF/empire_sb.jpg" alt="default cover"/>
+            </div>
+            <h1 id="modal_movie_title">L'Empire Contre-Attaque</h1>
+            <div class="modal_row" id="modal_genre">
+                <span class="modal_row_title">Genre</span>
+                <span id="modal_genre_content">Science-Fiction</span>
+            </div>
+            <div class="modal_row" id="modal_release">
+                <span class="modal_row_title">Date de sortie</span>
+                <span id="modal_release_content">1980</span>
+            </div>
+            <div class="modal_row" id="modal_rating">
+                <span class="modal_row_title"> Public</span>
+                <span id="modal_rating_content">PG</span>
+
+            </div>
+            <div class="modal_row" id="modal_imdb">
+                <span class="modal_row_title">Score IMDB</span>
+                <span id="modal_imdb_content">9.5</span>
+            </div>
+            <div class="modal_row" id="modal_director">
+                <span class="modal_row_title">Réalisateur</span>
+                <span id="modal_director_content">Georges Lucas</span>
+            </div>
+            <div class="modal_row" id="modal_casting">
+                <span class="modal_row_title">Acteurs</span>
+                <span id="modal_casting_content">
+                        Alec Guinness, Anthony Daniels, Billy Dee Williams, Carrie Fisher, Clive Revill, David Prowse, Des Webb, Frank Oz, Harrison Ford, Jack Purvis, Jeremy Bulloch, John Hollis, Kenny Baker, Mark Hamill, Peter Mayhew
+                    </span>
+            </div>
+            <div class="modal_row" id="modal_duration">
+                <span class="modal_row_title">Durée</span>
+                <span id="modal_duration_content">124 minutes</span>
+            </div>
+            <div class="modal_row" id="modal_country">
+                <span class="modal_row_title">Pays d'origine</span>
+                <span id="modal_country_content">USA</span>
+            </div>
+            <div class="modal_row" id="modal_box-office">
+                <span class="modal_row_title">Résultat au Box Office</span>
+                <span id="modal_box-office_content">$549'265'501</span>
+            </div>
+            <div class="modal_row" id="modal_synopsis">
+                <span class="modal_row_title">Résumé</span>
+                <span id="modal_synopsis_content">
+                        Luke Skywalker, Han Solo, Princess Leia and Chewbacca face attack by the Imperial forces and its AT-AT walkers on the ice planet Hoth. While Han and Leia escape in the Millennium Falcon, Luke travels to Dagobah in search of Yoda. Only with the Jedi Master's help will Luke survive when the Dark Side of the Force beckons him into the ultimate duel with Darth Vader.
+                </span>
+            </div>
+        </section>
+    </div>
+</div>
+</body>
+
+</html>

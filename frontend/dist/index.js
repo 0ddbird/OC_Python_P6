@@ -1,7 +1,10 @@
 import { observeHero } from './components/observer.js';
-import { addModalEventListeners } from './components/modal.js';
-const main = () => {
-    addModalEventListeners();
+import Controller from './Controller/Controller.js';
+const selectedCategories = ['Action', 'Sci-Fi', 'Adventure'];
+async function main(categoryNames) {
     observeHero();
-};
-main();
+    const controller = new Controller();
+    await controller.getMovies(categoryNames);
+    controller.buildDOM();
+}
+await main(selectedCategories);

@@ -21,6 +21,12 @@
     transform: translateY(1%);
     transition: transform .25s ease-in-out;
   }
+
+  &:hover .movie_info > .info-btn {
+    transform: translateY(0);
+    transition: transform .1s ease-in-out .25s;
+  }
+
 }
 
 .movie_thumbnail {
@@ -39,18 +45,5 @@
   padding: .5em;
   background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
   transform: translateY(100%);
-  animation: fadeSlice .25s ease-in-out forwards;
-}
-
-@keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+  transition: transform .25s ease-in-out .25s;
 }

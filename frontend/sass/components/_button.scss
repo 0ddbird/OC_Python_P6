@@ -13,6 +13,8 @@ button {
   position: relative;
   background: none;
   z-index: 1;
+  transform: translateY(300%);
+  transition: transform .1s ease-in;
 
   &:hover .btn_icon_hover {
     animation: fadeSpin 15s linear forwards;
@@ -24,6 +26,7 @@ button {
   inset: auto;
   height: 3em;
   width: 3em;
+  z-index: -1;
   animation: fadeOutSpin .25s ease-in-out forwards;
 }
 
