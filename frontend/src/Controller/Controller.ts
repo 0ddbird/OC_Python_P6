@@ -56,28 +56,30 @@ class Controller {
     for (const categoryName of categoryNames) {
       const response = await fetchMovies(categoryName, 10)
       if (response == null) return
-      const movies = response.results.map((entry) =>
-        this.buildMovie(entry, categoryName)
-      )
-      const category = new Category(categoryName, categoryName, movies)
+      const movies = response.results.map((entry) => this.buildMovie(entry, categoryName))
+      const next = response.next == null ? null : 2
+      let category
+      if (categoryName === 'best') category = new Category(categoryName, 'Les mieux notés', movies, next)
+      else category = new Category(categoryName, categoryName, movies, next)
+
       this.categories.push(category)
     }
   }
 
-  getHeroSection (): void {
+  async getHeroSection (): Promise<void> {
     if (this.heroMovie == null) return
-    this.heroMovie.buildDOM()
+    await this.heroMovie.buildDOM()
   }
 
-  getCategories (): void {
-    this.categories.forEach((category) => {
-      category.buildDOM()
-    })
+  async getCategories (): Promise<void> {
+    for (const category of this.categories) {
+      await category.buildDOM()
+    }
   }
 
-  getDOM (): void {
-    this.getHeroSection()
-    this.getCategories()
+  async getDOM (): Promise<void> {
+    await this.getHeroSection()
+    await this.getCategories()
   }
 }
 

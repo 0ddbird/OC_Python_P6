@@ -96,8 +96,7 @@ class Movie {
         imdbElement.textContent = this.imdbScore;
         directorElement.textContent = this.directors.join(', ');
         castingElement.textContent = this.actors.join(', ');
-        durationElement.textContent =
-            this.duration != null ? `${this.duration} mins` : 'Inconnu';
+        durationElement.textContent = this.duration != null ? `${this.duration} mins` : 'Inconnu';
         countryElement.textContent = this.countries?.join(', ') ?? 'Inconnu';
         boxOfficeElement.textContent = this.boxOffice ?? 'Inconnu';
         synopsysElement.textContent = this.longDescription ?? 'Inconnu';

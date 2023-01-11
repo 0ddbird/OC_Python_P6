@@ -1,15 +1,21 @@
 @use '../abstract' as a;
 
+
 .category {
   width: 100%;
+  position: relative;
 }
 
 .movies_container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1em;
-  padding: 0 1em;
+  display: flex;
   position: relative;
-  white-space: nowrap;
-  overflow: hidden;
+  transform: translateX(0%);
+  transition: transform 1s ease-in-out;
+}
+
+
+.slide {
+  --translate-value: attr(data-translate);
+  transform: translateX(var(--translate-value));
+  transition: transform 1s ease-in-out;
 }

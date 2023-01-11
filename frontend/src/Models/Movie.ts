@@ -23,10 +23,7 @@ class Movie {
   ) {}
 
   createThumbnail (root: HTMLElement): void {
-    const template = document.querySelector(
-      '#template_movie'
-    ) as HTMLTemplateElement
-
+    const template = document.querySelector('#template_movie') as HTMLTemplateElement
     const clone = template.content.cloneNode(true) as DocumentFragment
     const articleElement = clone.querySelector('article') as HTMLElement
     const imgElement = clone.querySelector('img') as HTMLImageElement
@@ -69,13 +66,9 @@ class Movie {
       }
     }
     try {
-      const response = await fetch(
-        `http://localhost:8000/api/v1/titles/${this.id}`,
-        fetchParams
-      )
+      const response = await fetch(`http://localhost:8000/api/v1/titles/${this.id}`, fetchParams)
       const result: IMovieDetails = await response.json()
-      const { duration, countries, rated, description, worldwideGrossIncome } =
-        result
+      const { duration, countries, rated, description, worldwideGrossIncome } = result
       this.duration = duration ?? 'Inconnu'
       this.countries = countries
       this.rated = rated ?? 'Inconnu'
@@ -87,48 +80,23 @@ class Movie {
   }
 
   openModal (): void {
-    const template: HTMLTemplateElement | null =
-      document.querySelector('#template_modal')
+    const template: HTMLTemplateElement | null = document.querySelector('#template_modal')
 
     if (template == null) return
     const clone = template.content.cloneNode(true) as DocumentFragment
 
-    const imgElement = clone.querySelector(
-      '#modal_movie_picture'
-    ) as HTMLImageElement
-    const titleElement = clone.querySelector(
-      '#modal_movie_title'
-    ) as HTMLHeadingElement
-    const genreElement = clone.querySelector(
-      '#modal_genre_content'
-    ) as HTMLSpanElement
-    const releaseElement = clone.querySelector(
-      '#modal_release_content'
-    ) as HTMLSpanElement
-    const ratingElement = clone.querySelector(
-      '#modal_rating_content'
-    ) as HTMLSpanElement
-    const imdbElement = clone.querySelector(
-      '#modal_imdb_content'
-    ) as HTMLSpanElement
-    const directorElement = clone.querySelector(
-      '#modal_director_content'
-    ) as HTMLSpanElement
-    const castingElement = clone.querySelector(
-      '#modal_casting_content'
-    ) as HTMLSpanElement
-    const durationElement = clone.querySelector(
-      '#modal_duration_content'
-    ) as HTMLSpanElement
-    const countryElement = clone.querySelector(
-      '#modal_country_content'
-    ) as HTMLSpanElement
-    const boxOfficeElement = clone.querySelector(
-      '#modal_box-office_content'
-    ) as HTMLSpanElement
-    const synopsysElement = clone.querySelector(
-      '#modal_synopsis_content'
-    ) as HTMLSpanElement
+    const imgElement = clone.querySelector('#modal_movie_picture') as HTMLImageElement
+    const titleElement = clone.querySelector('#modal_movie_title') as HTMLHeadingElement
+    const genreElement = clone.querySelector('#modal_genre_content') as HTMLSpanElement
+    const releaseElement = clone.querySelector('#modal_release_content') as HTMLSpanElement
+    const ratingElement = clone.querySelector('#modal_rating_content') as HTMLSpanElement
+    const imdbElement = clone.querySelector('#modal_imdb_content') as HTMLSpanElement
+    const directorElement = clone.querySelector('#modal_director_content') as HTMLSpanElement
+    const castingElement = clone.querySelector('#modal_casting_content') as HTMLSpanElement
+    const durationElement = clone.querySelector('#modal_duration_content') as HTMLSpanElement
+    const countryElement = clone.querySelector('#modal_country_content') as HTMLSpanElement
+    const boxOfficeElement = clone.querySelector('#modal_box-office_content') as HTMLSpanElement
+    const synopsysElement = clone.querySelector('#modal_synopsis_content') as HTMLSpanElement
 
     imgElement.setAttribute('src', this.imageUrl)
     imgElement.setAttribute('alt', this.title)
@@ -139,27 +107,21 @@ class Movie {
     imdbElement.textContent = this.imdbScore
     directorElement.textContent = this.directors.join(', ')
     castingElement.textContent = this.actors.join(', ')
-    durationElement.textContent =
-      this.duration != null ? `${this.duration} mins` : 'Inconnu'
+    durationElement.textContent = this.duration != null ? `${this.duration} mins` : 'Inconnu'
     countryElement.textContent = this.countries?.join(', ') ?? 'Inconnu'
     boxOfficeElement.textContent = this.boxOffice ?? 'Inconnu'
     synopsysElement.textContent = this.longDescription ?? 'Inconnu'
     document.body.appendChild(clone)
-    const modalBackground = document.querySelector(
-      '#modal-background'
-    ) as HTMLElement
-    const modalCloseButton = document.querySelector(
-      '#modal_close-btn'
-    ) as HTMLElement
+
+    const modalBackground = document.querySelector('#modal-background') as HTMLElement
+    const modalCloseButton = document.querySelector('#modal_close-btn') as HTMLElement
     modalBackground.classList.add('displayed')
     modalBackground.classList.remove('hidden')
     modalCloseButton.addEventListener('click', this.closeModal)
   }
 
   closeModal (): void {
-    const modalBackground = document.querySelector(
-      '#modal-background'
-    ) as HTMLElement
+    const modalBackground = document.querySelector('#modal-background') as HTMLElement
     document.body.removeChild(modalBackground)
   }
 }

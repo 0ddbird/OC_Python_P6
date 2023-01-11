@@ -25,23 +25,28 @@ class Controller {
             if (response == null)
                 return;
             const movies = response.results.map((entry) => this.buildMovie(entry, categoryName));
-            const category = new Category(categoryName, categoryName, movies);
+            const next = response.next == null ? null : 2;
+            let category;
+            if (categoryName === 'best')
+                category = new Category(categoryName, 'Les mieux notés', movies, next);
+            else
+                category = new Category(categoryName, categoryName, movies, next);
             this.categories.push(category);
         }
     }
-    getHeroSection() {
+    async getHeroSection() {
         if (this.heroMovie == null)
             return;
-        this.heroMovie.buildDOM();
+        await this.heroMovie.buildDOM();
     }
-    getCategories() {
-        this.categories.forEach((category) => {
-            category.buildDOM();
-        });
+    async getCategories() {
+        for (const category of this.categories) {
+            await category.buildDOM();
+        }
     }
-    getDOM() {
-        this.getHeroSection();
-        this.getCategories();
+    async getDOM() {
+        await this.getHeroSection();
+        await this.getCategories();
     }
 }
 export default Controller;

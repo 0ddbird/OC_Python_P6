@@ -1,20 +1,18 @@
 import { IAPIResponse } from './apiTypes.js'
 
-export async function fetchMovies (
-  categoryName: string,
-  pages: number
-): Promise<IAPIResponse | null> {
-  const fetchParams = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
+const fetchParams = {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json'
   }
+}
+export async function fetchMovies (categoryName: string, pageSize: number, page: number | null = null): Promise<IAPIResponse | null> {
   try {
-    const response = await fetch(
-      `http://localhost:8000/api/v1/titles/?genre=${categoryName}&sort_by=-imdb_score&page_size=${pages}`,
-      fetchParams
-    )
+    const url =
+      categoryName === 'best'
+        ? `http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page_size=${pageSize}&page=${page ?? '1'}`
+        : `http://localhost:8000/api/v1/titles/?genre=${categoryName}&sort_by=-imdb_score&page_size=${pageSize}&page=${page ?? '1'}`
+    const response = await fetch(url, fetchParams)
     return await response.json()
   } catch (e) {
     console.log(e)
@@ -23,17 +21,8 @@ export async function fetchMovies (
 }
 
 export async function fetchHeroMovie (): Promise<IAPIResponse | null> {
-  const fetchParams = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
   try {
-    const response = await fetch(
-      'http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page_size=1',
-      fetchParams
-    )
+    const response = await fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page_size=1', fetchParams)
     return await response.json()
   } catch (e) {
     console.log(e)

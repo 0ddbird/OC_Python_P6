@@ -111,12 +111,12 @@
   width: 100%;
   @include a.flex;
 
-  &::after {
+/*  &::after {
     position: absolute;
     inset: 0;
     content: '';
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%);
-  }
+  }*/
 
   @include a.mq-641 {
     grid-area: cover;

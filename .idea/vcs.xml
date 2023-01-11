@@ -2,8 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/temp/frontend_3/OCR_projet_6" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/temp/frontend_4/JustStreamIt-website" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/temp/frontend_6/P6-JustStreamIt" vcs="Git" />
   </component>
 </project>

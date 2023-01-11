@@ -34,7 +34,6 @@ button {
   position: absolute;
   background: none;
   z-index: 1;
-  opacity: 0;
   animation: fadeShrink .25s ease-in-out forwards;
 
   & img {
