@@ -1,9 +1,13 @@
+@use '../abstract' as a;
 body {
   background: black;
   position: relative;
 }
 
 #categories {
-  padding: 0 2em;
+  margin-top: -50px;
+  @include a.mq-961 {
+    margin-top: -200px;
+  }
 
 }

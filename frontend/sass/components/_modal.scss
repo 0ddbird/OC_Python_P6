@@ -54,9 +54,20 @@
 }
 
 #modal_content {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   position: relative;
+  gap: .25em;
+  grid-template-areas:  'cover        heading     heading'
+                        'cover        genre       genre'
+                        'cover        release     release'
+                        'cover        rating      rating'
+                        'cover        imdb        imdb'
+                        'cover        director    director'
+                        'cover        duration    duration'
+                        'cover        country     country'
+                        'cover        boxoffice   boxoffice'
+                        'casting      casting     casting'
+                        'synopsis     synopsis    synopsis';
 
   @include a.mq-641 {
     display: grid;
@@ -107,39 +118,25 @@
 #modal_movie_picture_container {
   position: relative;
   overflow: hidden;
-  height: 100%;
   width: 100%;
-  @include a.flex;
-
-/*  &::after {
-    position: absolute;
-    inset: 0;
-    content: '';
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%);
-  }*/
-
-  @include a.mq-641 {
-    grid-area: cover;
-  }
-
+  height: 100%;
+  display: flex;
+  justify-self: center;
+  grid-area: cover;
 }
 
 #modal_movie_picture {
   object-fit: cover;
   border-radius: 5px;
+  height: 100%;
   width: 100%;
 }
 
 #modal_movie_title {
   border-radius: 5px;
-  @include a.mq-641 {
-    grid-area: heading;
-  }
+  grid-area: heading;
 }
 
-.modal_row {
-
-}
 
 .modal_row_title {
   color: a.$clr-main;
@@ -147,73 +144,15 @@
   margin-right: 1ch;
 }
 
-#modal_genre {
-  @include a.mq-641 {
-    grid-area: genre;
-  }
-}
-
-
-#modal_release {
-  @include a.mq-641 {
-    grid-area: release;
-  }
-}
-
-
-#modal_rating {
-  @include a.mq-641 {
-    grid-area: rating;
-  }
-}
-
-
-#modal_imdb {
-  @include a.mq-641 {
-    grid-area: imdb;
-  }
-}
-
-
-#modal_director {
-  @include a.mq-641 {
-    grid-area: director;
-  }
-}
-
-
-#modal_casting {
-  @include a.mq-641 {
-    grid-area: casting;
-  }
-}
-
-
-#modal_duration {
-  @include a.mq-641 {
-    grid-area: duration;
-  }
-}
-
-
-#modal_country {
-  @include a.mq-641 {
-    grid-area: country;
-  }
-}
-
-
-#modal_box-office {
-  @include a.mq-641 {
-    grid-area: boxoffice;
-  }
-}
-
-
-#modal_synopsis {
-  @include a.mq-641 {
-    grid-area: synopsis;
-  }
-}
+#modal_genre {grid-area: genre;}
+#modal_release {grid-area: release;}
+#modal_rating {grid-area: rating;}
+#modal_imdb {grid-area: imdb;}
+#modal_director {grid-area: director;}
+#modal_casting {grid-area: casting;}
+#modal_duration {grid-area: duration;}
+#modal_country {grid-area: country;}
+#modal_box-office {grid-area: boxoffice;}
+#modal_synopsis {grid-area: synopsis;}
 
 

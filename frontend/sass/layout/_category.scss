@@ -4,18 +4,26 @@
 .category {
   width: 100%;
   position: relative;
+  padding: 2em 1em;
+  @include a.mq-1025 {
+    padding: 0 1em;
+  }
 }
 
 .movies_container {
+  width: 100%;
   display: flex;
   position: relative;
   transform: translateX(0%);
-  transition: transform 1s ease-in-out;
+  transition: transform .75s ease-in-out;
+  gap: 0 5%;
+
+  @include a.mq-641 {
+    gap: 0 2%;
+  }
+
+  @include a.mq-961 {
+    gap: 0 2%;
+  }
 }
 
-
-.slide {
-  --translate-value: attr(data-translate);
-  transform: translateX(var(--translate-value));
-  transition: transform 1s ease-in-out;
-}

@@ -7,6 +7,8 @@
 
 #hero_cover_container {
   position: relative;
+  display: flex;
+  justify-content: flex-end;
 
   @include a.mq-961 {
     margin-bottom: -70px;
@@ -21,7 +23,9 @@
 }
 
 #hero_cover {
-  width: 100%;
+  object-fit: cover;
+  width: 80%;
+  max-height: 950px;
 }
 
 #hero_panel {
@@ -42,7 +46,7 @@
     bottom: 30%;
   }
   @include a.mq-1800 {
-    bottom: 40%;
+    bottom: 30%;
   }
 }
 
