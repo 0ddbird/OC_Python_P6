@@ -92,10 +92,15 @@ class Category {
     if (this.next == null) return
     const response = await fetchMovies(this.name, this.range, this.next)
     if (response == null) return
-    const nextMovies = response.results.map(entry => this.buildMovie(entry, this.name))
-    if (response.next != null) this.next += 1
-    else this.next = null
-    nextMovies.forEach(movie => this.movies.push(movie))
+
+    const { results, next } = response;
+    
+    const nextMovies = results.map(entry => this.buildMovie(entry, this.name))
+
+    this.next = next ? this.next +1 : null
+
+    this.movies.push(...nextMovies)
+    
     this.appendNextMovie(nextMovies)
   }
 

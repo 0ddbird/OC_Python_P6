@@ -1,5 +1,11 @@
 import { IMovieDetails } from '../api/apiTypes'
 
+function setElementText(element: HTMLElement | null, text: string | null, fallback: string = 'Inconnu'): void {
+  if (element) {
+    element.textContent = text ?? fallback;
+  }
+}
+
 class Movie {
   constructor (
     public category: string,
@@ -80,49 +86,49 @@ class Movie {
   }
 
   openModal (): void {
+    // Get the HTML template in the DOM
     const template: HTMLTemplateElement | null = document.querySelector('#template_modal')
-
     if (template == null) return
     const clone = template.content.cloneNode(true) as DocumentFragment
+    
+    // Set the movie impage in the template clone
+    const imgElement = clone.querySelector('#modal_movie_picture') as HTMLImageElement | null
+    if (imgElement) {
+      imgElement.setAttribute('src', this.imageUrl)
+      imgElement.setAttribute('alt', this.title)
+    }
 
-    const imgElement = clone.querySelector('#modal_movie_picture') as HTMLImageElement
-    const titleElement = clone.querySelector('#modal_movie_title') as HTMLHeadingElement
-    const genreElement = clone.querySelector('#modal_genre_content') as HTMLSpanElement
-    const releaseElement = clone.querySelector('#modal_release_content') as HTMLSpanElement
-    const ratingElement = clone.querySelector('#modal_rating_content') as HTMLSpanElement
-    const imdbElement = clone.querySelector('#modal_imdb_content') as HTMLSpanElement
-    const directorElement = clone.querySelector('#modal_director_content') as HTMLSpanElement
-    const castingElement = clone.querySelector('#modal_casting_content') as HTMLSpanElement
-    const durationElement = clone.querySelector('#modal_duration_content') as HTMLSpanElement
-    const countryElement = clone.querySelector('#modal_country_content') as HTMLSpanElement
-    const boxOfficeElement = clone.querySelector('#modal_box-office_content') as HTMLSpanElement
-    const synopsysElement = clone.querySelector('#modal_synopsis_content') as HTMLSpanElement
+    // Set the text contents in the template clone
+    const modalDOMMap = [
+      { selector: '#modal_movie_title', textContent: this.title },
+      { selector: '#modal_genre_content', textContent: this.genres.join(', ') },
+      { selector: '#modal_release_content', textContent: this.year?.toString() },
+      { selector: '#modal_rating_content', textContent: this.rated },
+      { selector: '#modal_imdb_content', textContent: this.imdbScore },
+      { selector: '#modal_director_content', textContent: this.directors.join(', ') },
+      { selector: '#modal_casting_content', textContent: this.actors.join(', ') },
+      { selector: '#modal_duration_content', textContent: this.duration != null ? `${this.duration} mins` : 'Inconnu' },
+      { selector: '#modal_country_content', textContent: this.countries?.join(', ') ?? 'Inconnu' },
+      { selector: '#modal_box-office_content', textContent: this.boxOffice ?? 'Inconnu' },
+      { selector: '#modal_synopsis_content', textContent: this.longDescription ?? 'Inconnu' }
+    ]
+    modalDOMMap.forEach(element => setElementText(clone.querySelector(element.selector), element.textContent))
 
-    imgElement.setAttribute('src', this.imageUrl)
-    imgElement.setAttribute('alt', this.title)
-    titleElement.textContent = this.title
-    genreElement.textContent = this.genres.join(', ')
-    releaseElement.textContent = this.year.toString()
-    ratingElement.textContent = this.rated
-    imdbElement.textContent = this.imdbScore
-    directorElement.textContent = this.directors.join(', ')
-    castingElement.textContent = this.actors.join(', ')
-    durationElement.textContent = this.duration != null ? `${this.duration} mins` : 'Inconnu'
-    countryElement.textContent = this.countries?.join(', ') ?? 'Inconnu'
-    boxOfficeElement.textContent = this.boxOffice ?? 'Inconnu'
-    synopsysElement.textContent = this.longDescription ?? 'Inconnu'
+    // Append the clone to the document body
     document.body.appendChild(clone)
 
-    const modalBackground = document.querySelector('#modal-background') as HTMLElement
-    const modalCloseButton = document.querySelector('#modal_close-btn') as HTMLElement
+    // Display the modal
+    const modalBackground = document.querySelector('#modal-background') as HTMLElement | null
+    const modalCloseButton = document.querySelector('#modal_close-btn') as HTMLElement | null
+    if (!modalBackground || !modalCloseButton) return
     modalBackground.classList.add('displayed')
     modalBackground.classList.remove('hidden')
     modalCloseButton.addEventListener('click', this.closeModal)
   }
 
   closeModal (): void {
-    const modalBackground = document.querySelector('#modal-background') as HTMLElement
-    document.body.removeChild(modalBackground)
+    const modalBackground = document.querySelector('#modal-background') as HTMLElement | null
+    if (modalBackground) document.body.removeChild(modalBackground)
   }
 }
 

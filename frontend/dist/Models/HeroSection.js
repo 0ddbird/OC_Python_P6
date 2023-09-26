@@ -5,14 +5,22 @@ class HeroMovie extends Movie {
         const heroCover = document.querySelector('#hero_cover');
         const heroDescription = document.querySelector('#hero_description');
         const heroInfoBtn = document.querySelector('#hero_info_btn');
-        heroCover.setAttribute('src', this.imageUrl);
-        heroCover.setAttribute('alt', this.title);
-        heroDescription.innerText = this.longDescription ?? 'Inconnu';
-        heroInfoBtn.addEventListener('click', () => {
-            this.handleInfoBtnClick().catch((err) => {
-                console.log(err);
-            });
-        });
+        if (heroCover) {
+            heroCover.setAttribute('src', this.imageUrl);
+            heroCover.setAttribute('alt', this.title);
+        }
+        if (heroDescription)
+            heroDescription.innerText = this.longDescription ?? 'Inconnu';
+        if (heroInfoBtn)
+            heroInfoBtn.addEventListener('click', this.handleInfoBtnClick.bind(this));
+    }
+    async handleInfoBtnClick() {
+        try {
+            await this.handleInfoBtnClick();
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
 }
 export default HeroMovie;
