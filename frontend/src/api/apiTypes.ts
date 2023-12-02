@@ -14,6 +14,7 @@ interface IResult {
   imdb_score: string
   votes: number
   image_url: string
+  movie_url: string
   directors: string[]
   actors: string[]
   writers: string[]

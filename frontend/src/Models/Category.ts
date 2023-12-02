@@ -70,6 +70,7 @@ class Category {
       entry.directors,
       entry.genres,
       entry.image_url,
+      entry.movie_url,
       entry.imdb_score,
       entry.imdb_url,
       entry.title,
@@ -93,14 +94,14 @@ class Category {
     const response = await fetchMovies(this.name, this.range, this.next)
     if (response == null) return
 
-    const { results, next } = response;
-    
+    const { results, next } = response
+
     const nextMovies = results.map(entry => this.buildMovie(entry, this.name))
 
-    this.next = next ? this.next +1 : null
+    this.next = next ? this.next + 1 : null
 
     this.movies.push(...nextMovies)
-    
+
     this.appendNextMovie(nextMovies)
   }
 

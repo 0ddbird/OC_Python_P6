@@ -4,27 +4,23 @@ class HeroMovie extends Movie {
   async buildDOM (): Promise<void> {
     await this.fetchDetails()
 
-    const heroCover = document.querySelector('#hero_cover') as HTMLImageElement | null
-    const heroDescription = document.querySelector('#hero_description') as HTMLParagraphElement | null
-    const heroInfoBtn = document.querySelector('#hero_info_btn') as HTMLButtonElement | null
+    const heroCoverImgTag = document.querySelector('#hero_cover')
+    const heroDescriptionPTag = document.querySelector('#hero_description') as HTMLParagraphElement
+    const heroInfoBtn = document.querySelector('#hero_info_btn')
 
-    if (heroCover) {
-      heroCover.setAttribute('src', this.imageUrl)
-      heroCover.setAttribute('alt', this.title)
+    if (heroCoverImgTag != null) {
+      heroCoverImgTag.setAttribute('src', this.imageUrl)
+      heroCoverImgTag.setAttribute('alt', this.title)
     }
 
-    if (heroDescription) heroDescription.innerText = this.longDescription ?? 'Inconnu'
-    
-    if (heroInfoBtn) heroInfoBtn.addEventListener('click', this.handleInfoBtnClick.bind(this))
-    
-  }
-  
-  async handleInfoBtnClick(): Promise<void> {
-    try {
-      await this.handleInfoBtnClick()
-    }
-    catch (err) { 
-      console.log(err)
+    if (heroDescriptionPTag != null) heroDescriptionPTag.innerText = this.longDescription ?? 'Inconnu'
+
+    if (heroInfoBtn != null) {
+      heroInfoBtn.addEventListener('click', () => {
+        this.handleInfoBtnClick().catch((err) => {
+          console.error(err)
+        })
+      })
     }
   }
 }

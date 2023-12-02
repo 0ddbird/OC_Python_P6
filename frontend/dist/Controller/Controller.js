@@ -8,10 +8,10 @@ class Controller {
         this.heroMovie = heroMovie;
     }
     buildMovie(entry, categoryName) {
-        return new Movie(categoryName, entry.id, entry.actors, entry.directors, entry.genres, entry.image_url, entry.imdb_score, entry.imdb_url, entry.title, entry.url, entry.votes, entry.writers, entry.year);
+        return new Movie(categoryName, entry.id, entry.actors, entry.directors, entry.genres, entry.image_url, entry.movie_url, entry.imdb_score, entry.imdb_url, entry.title, entry.url, entry.votes, entry.writers, entry.year);
     }
     buildHeroMovie(entry, categoryName) {
-        return new HeroMovie(categoryName, entry.id, entry.actors, entry.directors, entry.genres, entry.image_url, entry.imdb_score, entry.imdb_url, entry.title, entry.url, entry.votes, entry.writers, entry.year);
+        return new HeroMovie(categoryName, entry.id, entry.actors, entry.directors, entry.genres, entry.image_url, entry.movie_url, entry.imdb_score, entry.imdb_url, entry.title, entry.url, entry.votes, entry.writers, entry.year);
     }
     async setHeroMovie() {
         const response = await fetchHeroMovie();
@@ -34,19 +34,19 @@ class Controller {
             this.categories.push(category);
         }
     }
-    async getHeroSection() {
+    async setHeroSection() {
         if (this.heroMovie == null)
             return;
         await this.heroMovie.buildDOM();
     }
-    async getCategories() {
+    async setCategories() {
         for (const category of this.categories) {
             await category.buildDOM();
         }
     }
-    async getDOM() {
-        await this.getHeroSection();
-        await this.getCategories();
+    async setDOM() {
+        await this.setHeroSection();
+        await this.setCategories();
     }
 }
 export default Controller;

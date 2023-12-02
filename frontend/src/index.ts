@@ -8,7 +8,7 @@ async function main (categoryNames: string[]): Promise<void> {
   const controller = new Controller()
   await controller.setHeroMovie()
   await controller.setMovies(categoryNames)
-  await controller.getDOM()
+  await controller.setDOM()
 }
 
 await main(selectedCategories)

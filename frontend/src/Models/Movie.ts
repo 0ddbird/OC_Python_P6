@@ -1,8 +1,8 @@
 import { IMovieDetails } from '../api/apiTypes'
 
-function setElementText(element: HTMLElement | null, text: string | null, fallback: string = 'Inconnu'): void {
-  if (element) {
-    element.textContent = text ?? fallback;
+function setElementText (element: HTMLElement | null, text: string | null, fallback: string = 'Inconnu'): void {
+  if (element != null) {
+    element.textContent = text ?? fallback
   }
 }
 
@@ -14,6 +14,7 @@ class Movie {
     public directors: string[],
     public genres: string[],
     public imageUrl: string,
+    public movieUrl: string,
     public imdbScore: string,
     public imdbUrl: string,
     public title: string,
@@ -90,10 +91,10 @@ class Movie {
     const template: HTMLTemplateElement | null = document.querySelector('#template_modal')
     if (template == null) return
     const clone = template.content.cloneNode(true) as DocumentFragment
-    
-    // Set the movie impage in the template clone
-    const imgElement = clone.querySelector('#modal_movie_picture') as HTMLImageElement | null
-    if (imgElement) {
+
+    // Set the movie image in the template clone
+    const imgElement = clone.querySelector('#modal_movie_picture')
+    if (imgElement != null) {
       imgElement.setAttribute('src', this.imageUrl)
       imgElement.setAttribute('alt', this.title)
     }
@@ -112,23 +113,25 @@ class Movie {
       { selector: '#modal_box-office_content', textContent: this.boxOffice ?? 'Inconnu' },
       { selector: '#modal_synopsis_content', textContent: this.longDescription ?? 'Inconnu' }
     ]
-    modalDOMMap.forEach(element => setElementText(clone.querySelector(element.selector), element.textContent))
+    modalDOMMap.forEach(element => {
+      setElementText(clone.querySelector(element.selector), element.textContent)
+    })
 
     // Append the clone to the document body
     document.body.appendChild(clone)
 
     // Display the modal
-    const modalBackground = document.querySelector('#modal-background') as HTMLElement | null
-    const modalCloseButton = document.querySelector('#modal_close-btn') as HTMLElement | null
-    if (!modalBackground || !modalCloseButton) return
+    const modalBackground = document.querySelector('#modal-background')
+    const modalCloseButton = document.querySelector('#modal_close-btn')
+    if (modalBackground == null || modalCloseButton == null) return
     modalBackground.classList.add('displayed')
     modalBackground.classList.remove('hidden')
     modalCloseButton.addEventListener('click', this.closeModal)
   }
 
   closeModal (): void {
-    const modalBackground = document.querySelector('#modal-background') as HTMLElement | null
-    if (modalBackground) document.body.removeChild(modalBackground)
+    const modalBackground = document.querySelector('#modal-background')
+    if (modalBackground != null) document.body.removeChild(modalBackground)
   }
 }
 

@@ -1,16 +1,17 @@
 function setElementText(element, text, fallback = 'Inconnu') {
-    if (element) {
+    if (element != null) {
         element.textContent = text ?? fallback;
     }
 }
 class Movie {
-    constructor(category, id, actors, directors, genres, imageUrl, imdbScore, imdbUrl, title, url, votes, writers, year, duration = null, countries = null, rated = null, longDescription = null, boxOffice = null) {
+    constructor(category, id, actors, directors, genres, imageUrl, movieUrl, imdbScore, imdbUrl, title, url, votes, writers, year, duration = null, countries = null, rated = null, longDescription = null, boxOffice = null) {
         this.category = category;
         this.id = id;
         this.actors = actors;
         this.directors = directors;
         this.genres = genres;
         this.imageUrl = imageUrl;
+        this.movieUrl = movieUrl;
         this.imdbScore = imdbScore;
         this.imdbUrl = imdbUrl;
         this.title = title;
@@ -81,9 +82,9 @@ class Movie {
         if (template == null)
             return;
         const clone = template.content.cloneNode(true);
-        // Set the movie impage in the template clone
+        // Set the movie image in the template clone
         const imgElement = clone.querySelector('#modal_movie_picture');
-        if (imgElement) {
+        if (imgElement != null) {
             imgElement.setAttribute('src', this.imageUrl);
             imgElement.setAttribute('alt', this.title);
         }
@@ -101,13 +102,15 @@ class Movie {
             { selector: '#modal_box-office_content', textContent: this.boxOffice ?? 'Inconnu' },
             { selector: '#modal_synopsis_content', textContent: this.longDescription ?? 'Inconnu' }
         ];
-        modalDOMMap.forEach(element => setElementText(clone.querySelector(element.selector), element.textContent));
+        modalDOMMap.forEach(element => {
+            setElementText(clone.querySelector(element.selector), element.textContent);
+        });
         // Append the clone to the document body
         document.body.appendChild(clone);
         // Display the modal
         const modalBackground = document.querySelector('#modal-background');
         const modalCloseButton = document.querySelector('#modal_close-btn');
-        if (!modalBackground || !modalCloseButton)
+        if (modalBackground == null || modalCloseButton == null)
             return;
         modalBackground.classList.add('displayed');
         modalBackground.classList.remove('hidden');
@@ -115,7 +118,7 @@ class Movie {
     }
     closeModal() {
         const modalBackground = document.querySelector('#modal-background');
-        if (modalBackground)
+        if (modalBackground != null)
             document.body.removeChild(modalBackground);
     }
 }

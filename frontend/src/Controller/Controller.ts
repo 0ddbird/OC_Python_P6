@@ -18,6 +18,7 @@ class Controller {
       entry.directors,
       entry.genres,
       entry.image_url,
+      entry.movie_url,
       entry.imdb_score,
       entry.imdb_url,
       entry.title,
@@ -36,6 +37,7 @@ class Controller {
       entry.directors,
       entry.genres,
       entry.image_url,
+      entry.movie_url,
       entry.imdb_score,
       entry.imdb_url,
       entry.title,
@@ -66,20 +68,20 @@ class Controller {
     }
   }
 
-  async getHeroSection (): Promise<void> {
+  async setHeroSection (): Promise<void> {
     if (this.heroMovie == null) return
     await this.heroMovie.buildDOM()
   }
 
-  async getCategories (): Promise<void> {
+  async setCategories (): Promise<void> {
     for (const category of this.categories) {
       await category.buildDOM()
     }
   }
 
-  async getDOM (): Promise<void> {
-    await this.getHeroSection()
-    await this.getCategories()
+  async setDOM (): Promise<void> {
+    await this.setHeroSection()
+    await this.setCategories()
   }
 }
 

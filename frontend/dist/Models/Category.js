@@ -54,7 +54,7 @@ class Category {
         this.root.appendChild(clone);
     }
     buildMovie(entry, categoryName) {
-        return new Movie(categoryName, entry.id, entry.actors, entry.directors, entry.genres, entry.image_url, entry.imdb_score, entry.imdb_url, entry.title, entry.url, entry.votes, entry.writers, entry.year);
+        return new Movie(categoryName, entry.id, entry.actors, entry.directors, entry.genres, entry.image_url, entry.movie_url, entry.imdb_score, entry.imdb_url, entry.title, entry.url, entry.votes, entry.writers, entry.year);
     }
     appendNextMovie(movies) {
         const selector = `#category-${this.name}`;
